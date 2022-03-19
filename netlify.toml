@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/js/*.js"
-  to = "/js/:splat"
+  from = "/js/*"
+  to = "/js/:splat.js"
   status = 200
   force = true

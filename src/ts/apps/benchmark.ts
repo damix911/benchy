@@ -1,5 +1,8 @@
-import { f } from "../util";
+import myFirstTest from "../tests/myFirstTest";
+import mySecondTest from "../tests/mySecondTest";
+import { runTests } from "../util";
 
-console.log("Miao!");
-
-f();
+runTests([
+  myFirstTest,
+  mySecondTest
+]);

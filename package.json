@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sh build.sh"
+    "build": "sh build.sh",
+    "devel": "node devel.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/damix911/benchy#readme",
   "devDependencies": {
-    "typescript": "^4.6.2"
+    "express": "^4.17.3",
+    "typescript": "^4.6.2",
+    "open": "^8.4.0"
   }
 }

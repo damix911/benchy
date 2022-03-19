@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/js/*.js"
+  to = "/js/:splat"
+  status = 200
+  force = true

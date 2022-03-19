@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/damix911/benchy/issues"
   },
-  "homepage": "https://github.com/damix911/benchy#readme"
+  "homepage": "https://github.com/damix911/benchy#readme",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
 }

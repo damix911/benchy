@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sh build.sh",
-    "devel": "node devel.js"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/damix911/benchy#readme",
   "devDependencies": {
-    "express": "^4.17.3",
+    "copy-webpack-plugin": "^10.2.4",
+    "ts-loader": "^9.2.8",
     "typescript": "^4.6.2",
-    "open": "^8.4.0"
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }

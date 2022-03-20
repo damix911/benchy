@@ -42,3 +42,28 @@ export async function saveResult(testName: string, result: string): Promise<void
   });
   await request.promise();
 }
+
+
+export function getResults(): Promise<{ id: string, deviceId: string, userAgent: string, test: string, result: string }[]> {
+  const client = _createClient();
+  
+  return new Promise((resolve) => {
+    client.scan({
+      TableName: "benchy-dynamo"
+    }, (err, data) => {
+      if (err) {
+        throw new Error("Error fetching the results.");
+      }
+
+      // TODO: Continue scanning.
+
+      resolve((data as any).Items.map((item: any) => ({
+        "id": item.id.S,
+        "deviceId": item.deviceId.S,
+        "userAgent": item.userAgent.S,
+        "test": item.test.S,
+        "result": item.result.S
+      })));
+    });
+  });
+}

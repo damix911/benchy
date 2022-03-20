@@ -1,3 +1,3 @@
-export default async function myFirstTest(): Promise<any> {
-  return 2;
+export default async function myFirstTest(): Promise<string> {
+  return "2";
 }

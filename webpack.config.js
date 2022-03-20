@@ -6,7 +6,8 @@ module.exports = {
   devtool: "source-map",
   entry: {
     benchmark: "./src/ts/apps/benchmark.ts",
-    results: "./src/ts/apps/results.ts"
+    results: "./src/ts/apps/results.ts",
+    configure: "./src/ts/apps/configure.ts"
   },
   module: {
     rules: [
@@ -14,8 +15,8 @@ module.exports = {
         test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/,
-      },
-    ],
+      }
+    ]
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],

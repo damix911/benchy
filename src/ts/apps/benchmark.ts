@@ -1,10 +1,17 @@
-import myFirstTest from "../tests/myFirstTest";
-import mySecondTest from "../tests/mySecondTest";
-import { runTests } from "../util";
+import { saveResult } from "../storage";
+import { all } from "../tests/suites";
 
-console.log("benchmark!");
+const tests = all;
 
-runTests([
-  myFirstTest,
-  mySecondTest
-]);
+async function main(): Promise<void> {
+  const testNames = Object.keys(tests);
+  testNames.sort((a, b) => a.localeCompare(b));
+
+  for (const testName of testNames) {
+    const testFunction = (tests as any)[testName];
+    const result = await testFunction();
+    saveResult(testName, result);
+  }
+}
+
+main();

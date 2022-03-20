@@ -1,7 +1,7 @@
-import myFirstTest from "./myFirstTest";
-import mySecondTest from "./mySecondTest";
+import blur5 from "./blur5";
+import blur11 from "./blur11";
 
 export const all = {
-  myFirstTest,
-  mySecondTest
+  blur5,
+  blur11
 };

@@ -11,7 +11,13 @@ async function main(): Promise<void> {
     const testFunction = (tests as any)[testName];
     const result = await testFunction();
     saveResult(testName, result);
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, 3000);
+    });
   }
+
+  document.body.appendChild(document.createTextNode("Benchmark completed. Thank you!"));
 }
 
 main();

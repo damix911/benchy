@@ -35,6 +35,7 @@ export async function saveResult(testName: string, result: string): Promise<void
     Item: {
       "id": { S: uid() },
       "deviceId": { S: deviceId },
+      "userAgent": { S: navigator.userAgent },
       "test": { S: testName },
       "result": { S: result }
     }

@@ -7,11 +7,25 @@ export default async function blur(width: number, height: number, halfBlurRadius
   image.height = height;
   // document.body.appendChild(image);
   const ctx = image.getContext("2d")!;
+  const gradient = ctx.createLinearGradient(0, height, width, 0);
+  gradient.addColorStop(0, "red");
+  gradient.addColorStop(0.15, "orange");
+  gradient.addColorStop(0.30, "yellow");
+  gradient.addColorStop(0.45, "green");
+  gradient.addColorStop(0.60, "blue");
+  gradient.addColorStop(0.75, "purple");
+  gradient.addColorStop(1, "pink");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, width, height);
   ctx.font = `${Math.round(height / 2)}px sans-serif`;
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
+  ctx.fillStyle = "white";
   ctx.fillText("Abc", width / 2, height / 2);
-  
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 5;
+  ctx.strokeText("Abc", width / 2, height / 2);
+
   const canvas = document.createElement("canvas");
   canvas.style.border = "1px solid red";
   canvas.width = width;
@@ -44,12 +58,14 @@ export default async function blur(width: number, height: number, halfBlurRadius
 
     void main(void) {
       float du = 1.0 / float(u_TextureSize.x);
-      float dv = 1.0 / float(u_TextureSize.y);
+      float dv = 0.0; // 1.0 / float(u_TextureSize.y);
       vec4 color = vec4(0.0);
+
+      float sigma = float(${halfBlurRadius}) / 2.0;
 
       for (int i = -${halfBlurRadius}; i <= ${halfBlurRadius}; i++) {
         float t = float(i);
-        float w = exp(-0.1 * t);
+        float w = (1.0 / (sqrt(2.0 * 3.1415) * sigma)) * exp(-(t * t) / (2.0 * sigma * sigma));
         color += w * texture2D(u_Texture, v_Texcoord + vec2(t * du, t * dv));
       }
 

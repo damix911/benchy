@@ -40,4 +40,8 @@ async function main(): Promise<void> {
   // document.body.appendChild(table);
 }
 
-main();
+if (localStorage.getItem("deviceId")) {
+  main();
+} else {
+  location.href = "/configure.html";
+}

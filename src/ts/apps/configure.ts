@@ -16,4 +16,6 @@ applyButton.addEventListener("click", () => {
   localStorage.setItem("accessKeyId", accessKeyIdInput.value);
   localStorage.setItem("secretAccessKey", secretAccessKeyInput.value);
   localStorage.setItem("deviceId", deviceIdInput.value);
+
+  location.href = "/benchmark.html";
 });

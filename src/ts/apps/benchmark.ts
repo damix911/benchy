@@ -3,7 +3,7 @@ import { all } from "../tests/suites";
 
 const tests = all;
 
-const runButton = document.querySelector("#button")!;
+const runButton = document.querySelector("#runButton")!;
 
 async function run(): Promise<void> {
   runButton.remove();
@@ -26,4 +26,10 @@ async function run(): Promise<void> {
   document.body.appendChild(document.createTextNode("Benchmark completed. Thank you!"));
 }
 
-runButton.addEventListener("click", run);
+
+
+if (localStorage.getItem("deviceId")) {
+  runButton.addEventListener("click", run);
+} else {
+  location.href = "/configure.html";
+}

@@ -3,7 +3,11 @@ import { all } from "../tests/suites";
 
 const tests = all;
 
-async function main(): Promise<void> {
+const runButton = document.querySelector("#button")!;
+
+async function run(): Promise<void> {
+  runButton.remove();
+  
   const testNames = Object.keys(tests);
   // testNames.sort((a, b) => a.localeCompare(b));
 
@@ -22,4 +26,4 @@ async function main(): Promise<void> {
   document.body.appendChild(document.createTextNode("Benchmark completed. Thank you!"));
 }
 
-main();
+runButton.addEventListener("click", run);

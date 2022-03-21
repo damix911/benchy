@@ -11,8 +11,8 @@ secretAccessKeyInput.value = secretAccessKey;
 const deviceIdInput = document.querySelector("#deviceId") as HTMLInputElement;
 deviceIdInput.value = deviceId;
 
-const updateButton = document.querySelector("#updateButton") as HTMLButtonElement;
-updateButton.addEventListener("click", () => {
+const applyButton = document.querySelector("#applyButton") as HTMLButtonElement;
+applyButton.addEventListener("click", () => {
   localStorage.setItem("accessKeyId", accessKeyIdInput.value);
   localStorage.setItem("secretAccessKey", secretAccessKeyInput.value);
   localStorage.setItem("deviceId", deviceIdInput.value);

@@ -1,6 +1,6 @@
 import { getDatabase } from "../database";
 import { all } from "../tests/suites";
-import { sleep } from "../util";
+import { sleep, versionRibbon } from "../util";
 
 const tests = all;
 
@@ -46,3 +46,5 @@ if (localStorage.getItem("deviceId")) {
 } else {
   location.href = "/configure.html";
 }
+
+versionRibbon();

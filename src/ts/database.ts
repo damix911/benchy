@@ -73,7 +73,7 @@ export class DynamoDatabase implements IDatabase {
           "deviceId": item.deviceId.S,
           "userAgent": item.userAgent.S,
           "test": item.test.S,
-          "resultFormat": { S: item.resultFormat.S },
+          "resultFormat": item.resultFormat.S,
           "result": item.result.S,
           "date": item.date.S
         })));

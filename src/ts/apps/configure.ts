@@ -1,3 +1,5 @@
+import { versionRibbon } from "../util";
+
 const accessKeyId = localStorage.getItem("accessKeyId") || "";
 const secretAccessKey = localStorage.getItem("secretAccessKey") || "";
 const deviceId = localStorage.getItem("deviceId") || "";
@@ -19,3 +21,5 @@ applyButton.addEventListener("click", () => {
 
   location.href = "/benchmark.html";
 });
+
+versionRibbon();

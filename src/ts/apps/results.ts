@@ -1,4 +1,5 @@
 import { getDatabase } from "../database";
+import { versionRibbon } from "../util";
 
 async function main(): Promise<void> {
   const db = getDatabase();
@@ -46,3 +47,5 @@ if (localStorage.getItem("deviceId")) {
 } else {
   location.href = "/configure.html";
 }
+
+versionRibbon();

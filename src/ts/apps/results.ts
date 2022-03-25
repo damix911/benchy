@@ -1,7 +1,8 @@
-import { getResults } from "../storage";
+import { getDatabase } from "../database";
 
 async function main(): Promise<void> {
-  const results = await getResults();
+  const db = getDatabase();
+  const results = await db.getResults();
   
   const testNames = new Set<string>();
   for (const result of results) {

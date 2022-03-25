@@ -18,14 +18,14 @@ async function main(): Promise<void> {
     const table = document.createElement("table");
     const header = document.createElement("tr");
     header.style.fontWeight = "bold";
-    header.innerHTML = "<td>id</td><td>deviceId</td><td>userAgent</td><td>result</td>";
+    header.innerHTML = "<td>id</td><td>deviceId</td><td>userAgent</td><td>resultFormat</td><td>result</td><td>date</td>";
     table.appendChild(header);
 
     // TODO: Lookup, don't rescan.
     for (const result of results) {
       if (result.test === testName) {
         const row = document.createElement("tr");
-        row.innerHTML = `<td>${result.id}</td><td>${result.deviceId}</td><td>${result.userAgent}</td><td>${result.result}</td>`;
+        row.innerHTML = `<td>${result.id}</td><td>${result.deviceId}</td><td>${result.userAgent}</td><td>${result.resultFormat}</td><td>${result.result}</td><td>${result.date}</td>`;
         table.appendChild(row);
       }
     }

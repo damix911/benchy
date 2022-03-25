@@ -7,6 +7,14 @@ const tests = all;
 const runButton = document.querySelector("#runButton")!;
 
 async function run(): Promise<void> {
+  let lock: any;
+  
+  try {
+    lock = await (navigator as any)["wakeLock"].request();
+  } catch (e) {
+    console.error("Error acquiring wake lock", e);
+  }
+
   runButton.remove();
 
   const countdown = document.createElement("div");
@@ -37,6 +45,11 @@ async function run(): Promise<void> {
   }
 
   document.body.appendChild(document.createTextNode("Benchmark completed. Thank you!"));
+
+  if (lock) {
+    lock.release();
+    lock = null;
+  }
 }
 
 
